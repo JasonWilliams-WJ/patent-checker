@@ -1,40 +1,58 @@
-# 量潮Python项目示例
+# 专利匹配标注管理
 
-## 示例使用说明（使用时请按本部分操作后删除本部分内容）
+## 安装
 
-- 用法：创建`Github`仓库时可以选择为模板，已经创建仓库的可以手动参照调整。
+```
+pip install pdm
+```
 
-- 目录结构说明：`pdm` 配置（`pyproject.toml`）、文档（`README.md`、`CHANGELOG.md`、`docs`（用户文档））、代码（`project_name`（业务代码）、`tests`（单元测试）、`integrated_tests`（集成测试））、`.gitignore`、`LICENSE`
+## 配置
 
-- 需要注意修改的：`pyproject.toml` 与本 `README.md` 文件中的项目名称和描述；`project_name` 文件夹重命名为具体项目名
+### Python依赖
 
-## 环境配置
+```
+pdm install
+```
 
-1. 安装 Python 环境：
+### 数据文件
 
-   前往 [https://www.python.org/](https://www.python.org/) 下载安装 Python (>= 3.10)，然后在命令行中执行：
+项目根目录创建`data`文件夹，在文件夹里放`匹配失败起草单位v4_无专利数据.csv`。
 
-    ```shell
-    pip install pdm
-    pdm install
-    ```
-
-   若下载缓慢，可换源：
-
-    ```shell
-    pip config set global.index-url https://mirrors.aliyun.com/pypi/simple
-    ```
-
-2. 在`项目根目录`下执行以下命令安装依赖项：
-
-   ```shell
-   pdm install
-   ```
 
 ## 运行
 
-1. 在`项目根目录`下执行以下命令：
+### 分配数据
 
-   ```shell
-   pdm run python project_name/__main__.py
-   ```
+```
+pdm run split
+```
+
+或者
+
+```
+pdm run python -m patent_checker.splitter
+```
+
+### 检查数据
+
+```
+pdm run check
+```
+
+或者
+
+```
+pdm run python -m patent_checker.checker
+```
+
+### 检查单个数据
+
+```
+pdm run single-check
+```
+
+或者
+
+```
+pdm run python -m patent_checker.single_checker
+```
