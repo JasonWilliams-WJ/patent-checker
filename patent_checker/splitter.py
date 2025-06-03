@@ -28,5 +28,5 @@ def split_csv(input_path, n, check_gap = 0.2):
             writer.writerow(header)
             writer.writerows(combined)
 
-# 使用示例
-split_csv('data/匹配失败起草单位v4_无专利数据.csv', n=5, check_gap=0.2)
+if __name__ == "__main__":
+    split_csv('data/匹配失败起草单位v4_无专利数据.csv', n=5, check_gap=0.2)
